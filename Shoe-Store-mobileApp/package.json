@@ -1,0 +1,32 @@
+{
+  "name": "shoe-store-mobileapp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --fix .",
+    "format": "prettier -w .",
+    "json-server": "json-server --watch db.json"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1",
+    "vite": "^4.2.0"
+  },
+  "dependencies": {
+    "axios": "^1.3.5",
+    "js-cookie": "^3.0.1",
+    "vite-jsconfig-paths": "^2.0.1"
+  }
+}
