@@ -1,35 +1,50 @@
-import { LoginPage, RegisterPage } from "@/screens/Auth";
-import { Main } from "@/screens/Main";
+import { IsLoading, Slider } from "@/components";
+import { LoginPage } from "@/screens/Auth";
+import { LandingPage } from "@/screens/LandingPage";
 import { PageNotFound } from "@/screens/PageNotFound";
-import Cookies from "js-cookie";
+// import axios from "axios";
+// import Cookies from "js-cookie";
 
 export const Routes = function () {
-  const app = document.getElementById("app");
+  const app = document.getElementById("container");
   app.innerHTML = "";
 
   switch (location.pathname) {
     case "/":
-      if (Cookies.get("token")) {
-        history.pushState(null, null, "/weather");
-        return Routes();
-      } else {
-        history.pushState(null, null, "/login");
-      }
-      return Routes();
+      app.append(IsLoading());
+      setTimeout(() => {
+        app.innerHTML = "";
+        app.append(LandingPage());
+        // document.getElementById("landing-page").style.position = "absolute";
+        // document.getElementById("landing-page").scrollTop = 200;
+        setTimeout(() => {
+          app.append(Slider());
+          // if (navigator.userAgentData.mobile) {
+          //   document.getElementById("container").scrollTop =
+          //     window.screen.height;
+          // } else {
+          //   document.getElementById("container").scrollTop =
+          //     window.screen.height;
+          // }
+          // document.getElementById("landing-page").style.display = "none";
+          document.getElementById("container").scrollTop = window.screen.height;
+        }, 2000);
+      }, 700);
+
+      // if (Cookies.get("cookie")) {
+      //   console.log("yes cookie");
+      // } else {
+      //   app.innerHTML = "";
+      // }
+      break;
 
     case "/login":
       app.append(LoginPage());
-      return;
+      break;
     case "/register":
-      app.append(RegisterPage());
-      return;
+      break;
 
     case "/weather":
-      if (Cookies.get("token")) {
-        app.append(Main());
-      } else {
-        app.append(PageNotFound({ msg: "Please Login First", login: true }));
-      }
       break;
 
     default:

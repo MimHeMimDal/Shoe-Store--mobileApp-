@@ -1,5 +1,5 @@
 import { Button, Form, TextField } from "@/components";
-import { CheckRegister } from "@/library/CheckRegister";
+// import { CheckRegister } from "@/library/CheckRegister";
 import ElementGenerator from "@/library/ElementGernerator";
 import { Routes } from "@/routes";
 
@@ -8,7 +8,7 @@ export const RegisterPage = function () {
     element: "div",
     className:
       "absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-[#2C74B3] w-2/3 max-w-xs border rounded-xl px-5 py-5",
-    onsubmit: CheckRegister,
+    // onsubmit: CheckRegister,
     child: [
       Form({
         id: "register-form",

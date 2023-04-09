@@ -10,6 +10,10 @@ export const Button = function ({ dataSet, className, variant, ...rest }) {
     className: `${btnVariant[variant]} ${className}`,
     ...rest,
   });
-  if (dataSet) btn.dataset.action = dataSet;
+  if (dataSet) {
+    for (const key in dataSet) {
+      btn.dataset[key] = dataSet[key];
+    }
+  }
   return btn;
 };
