@@ -7,7 +7,7 @@ const btnVariant = {
 export const Button = function ({ dataSet, className, variant, ...rest }) {
   const btn = ElementGenerator({
     element: "button",
-    className: `${btnVariant[variant]} ${className}`,
+    className: `${variant ? btnVariant[variant] : ""} ${className}`,
     ...rest,
   });
   if (dataSet) {

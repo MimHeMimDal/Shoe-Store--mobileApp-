@@ -7,8 +7,8 @@ let isDragging = false;
 let lastPageX;
 let lastScrollLeft;
 let positionDiff;
-let lastPositionDiff;
-console.log(lastPositionDiff);
+// let lastPositionDiff;
+// console.log(lastPositionDiff);
 function dragStart(e) {
   isDragStarts = true;
   // console.log(e.pageX || e.touches[0].pageX);
@@ -26,7 +26,8 @@ function autoSlide() {
     return;
 
   positionDiff = Math.abs(positionDiff);
-  const valDiffrence = window.screen.availWidth - positionDiff;
+  const valDiffrence =
+    document.getElementById("slider").clientWidth - positionDiff;
   // console.log(valDiffrence);
 
   if (document.getElementById("slider").scrollLeft > lastScrollLeft) {
@@ -36,20 +37,11 @@ function autoSlide() {
         : -positionDiff);
   } else {
     return (document.getElementById("slider").scrollLeft -=
-      positionDiff > window.screen.availWidth / 3
+      positionDiff > document.getElementById("slider").clientWidth / 3
         ? valDiffrence
         : -positionDiff);
   }
 }
-
-function dragEnd(e) {
-  isDragStarts = false;
-  document.getElementById("slider").classList.add("scroll-smooth");
-  if (!isDragging) return;
-  isDragging = false;
-  autoSlide();
-}
-
 function drag(e) {
   if (!isDragStarts) return;
   e.preventDefault();
@@ -59,7 +51,17 @@ function drag(e) {
 }
 function nextPage(e) {
   e.preventDefault();
-  document.getElementById("slider").scrollLeft += window.screen.availWidth;
+  // document.getElementById("slider").scrollLeft += window.screen.availWidth;
+  document.getElementById("slider").scrollLeft +=
+    document.getElementById("slider").clientWidth;
+}
+
+function dragEnd(e) {
+  isDragStarts = false;
+  document.getElementById("slider").classList.add("scroll-smooth");
+  if (!isDragging) return;
+  isDragging = false;
+  autoSlide();
 }
 
 export const Slider = function () {
@@ -81,7 +83,6 @@ export const Slider = function () {
     child: [
       ElementGenerator({
         element: "div",
-
         className: "",
         child: [
           ElementGenerator({
@@ -190,8 +191,9 @@ export const Slider = function () {
                 dataSet: { action: "start" },
                 className: "bg-[#212529] w-full rounded-3xl py-1 text-white",
                 onclick: () => {
-                  history.pushState(null, null, "/login");
-                  Routes();
+                  // history.pushState(null, null, "/login");
+                  // Routes();
+                  Routes().navigate("/login");
                 },
               }),
             ],

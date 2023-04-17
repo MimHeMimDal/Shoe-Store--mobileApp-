@@ -7,3 +7,4 @@ export * from "./modal";
 export * from "./IsLoading";
 export * from "./toast";
 export * from "./slider";
+export * from "./counter";

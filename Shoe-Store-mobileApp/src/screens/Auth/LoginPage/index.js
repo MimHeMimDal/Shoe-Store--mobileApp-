@@ -1,31 +1,55 @@
 import { Button, Form } from "@/components";
 import { svgIcons } from "@/data";
-// import { CheckLogin } from "@/library/CheckLogin";
+import { CheckLogin } from "@/library/CheckLogin";
 import ElementGenerator from "@/library/ElementGernerator";
 import { Routes } from "@/routes";
 
-// onclick: () => {
-//   console.log("hi");
-//   if (document.getElementById("passwordLogin").type === "password") {
-//     document.getElementById("passwordLogin").type = "text";
-//   } else {
-//     document.getElementById("passwordLogin").type = "password";
-//   }
-// },
+const stillButton = (e) => {
+  if (
+    document.getElementById("passwordLogin").value.trim() !== "" &&
+    document.getElementById("userNameLogin").value.trim() !== ""
+  ) {
+    document.getElementById("submit").classList.remove("opacity-[65%]");
+  } else {
+    document.getElementById("submit").classList.add("opacity-[65%]");
+  }
+};
+
+const inputFocus = (e) => {
+  e.target.closest("div").classList.add("border-2");
+  e.target.closest("div").classList.add("border-black");
+};
+
+const inputBlur = (e) => {
+  e.target.closest("div").classList.remove("border-2");
+  e.target.closest("div").classList.remove("border-black");
+};
+
+const showPassword = (e) => {
+  if (document.getElementById("passwordLogin").type === "password") {
+    document.getElementById("passwordLogin").type = "text";
+    document.getElementById("eye").classList.add("h-[0%]");
+    document.getElementById("eye").classList.remove("h-[100%]");
+  } else {
+    document.getElementById("passwordLogin").type = "password";
+    document.getElementById("eye").classList.remove("h-[0%]");
+    document.getElementById("eye").classList.add("h-[100%]");
+  }
+};
 
 export const LoginPage = function () {
   return ElementGenerator({
     element: "div",
     className:
       "h-full flex flex-col items-center justify-between [&_>_*]:w-full px-4 py-3",
-    // onsubmit: CheckLogin,
     child: [
       ElementGenerator({
         element: "div",
         className: "",
         onclick: () => {
-          history.pushState(null, null, "/");
-          Routes();
+          // history.pushState(null, null, "/");
+          // Routes();
+          Routes().navigate("/");
         },
         child: ElementGenerator({
           element: "span",
@@ -44,137 +68,98 @@ export const LoginPage = function () {
       }),
       Form({
         id: "login-form",
+        onsubmit: CheckLogin,
         className: "flex flex-col items-center justify-between grow",
         child: [
           ElementGenerator({
             element: "h1",
-            className: "font-semibold text-[26px] mb-7",
+            className:
+              "font-semibold text-[24px] xs:text-[32px] text-[#152536] mb-7",
             child: "Login to Your Account",
           }),
           ElementGenerator({
             element: "div",
             className:
-              "flex items-center justify-between w-full h-10 border-2 border-gray-300 rounded px-2 opacity-60",
+              "flex items-center justify-between w-full h-10 bg-gray-600 bg-opacity-[1%] rounded px-2",
             child: [
               ElementGenerator({
                 element: "label",
                 for: "userNameLogin",
-                className: "flex items-center justify-center h-full",
-                innerHTML: svgIcons.mail,
+                id: "userNameLoginLabel",
+                className:
+                  "flex items-center justify-center h-full fill-slate-500",
+                innerHTML: svgIcons.mailGray,
               }),
               ElementGenerator({
                 element: "input",
                 type: "text",
-                onkeyup: (e) => {
-                  if (
-                    document.getElementById("passwordLogin").value.trim() !==
-                      "" &&
-                    document.getElementById("userNameLogin").value.trim() !== ""
-                  ) {
-                    document
-                      .getElementById("submit")
-                      .classList.remove("opacity-60");
-                    document.getElementById("submit").disabled = false;
-                  } else {
-                    document
-                      .getElementById("submit")
-                      .classList.add("opacity-60");
-                    document.getElementById("submit").disabled = true;
-                  }
-                },
-                onfocus: (e) => {
-                  e.target.closest("div").classList.remove("border-gray-300");
-                  e.target.closest("div").classList.add("border-black");
-                  e.target.closest("div").classList.remove("opacity-60");
-                },
-                onblur: (e) => {
-                  e.target.closest("div").classList.remove("border-black");
-                  e.target.closest("div").classList.add("border-gray-300");
-                  if (e.target.value.trim() === "")
-                    e.target.closest("div").classList.add("opacity-60");
-                },
                 className:
-                  "h-full px-1 font-medium border-none grow outline-none focus:border-none active:border-none active:outline-none focus:outline-none",
+                  "h-full px-1 font-medium border-none grow placeholder:text-[#6C757D] placeholder:text-[14px] placeholder:font-regular bg-transparent outline-none focus:border-none active:border-none active:outline-none focus:outline-none",
                 id: "userNameLogin",
                 placeholder: "Email",
+                onkeyup: stillButton,
+                onfocus: (e) => {
+                  inputFocus(e);
+                  document.getElementById("userNameLoginLabel").innerHTML =
+                    svgIcons.mailBlack;
+                },
+                onblur: (e) => {
+                  inputBlur(e);
+                  if (e.target.value.trim() === "")
+                    document.getElementById("userNameLoginLabel").innerHTML =
+                      svgIcons.mailGray;
+                },
               }),
             ],
           }),
           ElementGenerator({
             element: "p",
-            for: "userNameHelper",
+            id: "userNameLoginHelper",
             className: "h-6 w-full text-sm px-2",
             child: "hello",
           }),
           ElementGenerator({
             element: "div",
             className:
-              "flex items-center justify-between w-full h-10 border-2 border-gray-300 rounded px-2 opacity-60",
+              "flex items-center justify-between w-full h-10 bg-gray-600 bg-opacity-[1%] rounded px-2",
             child: [
               ElementGenerator({
-                element: "span",
+                element: "label",
+                for: "passwordLogin",
+                id: "passwordLoginLabel",
                 className: "flex items-center justify-center",
-                innerHTML: svgIcons.lock,
+                innerHTML: svgIcons.lockGray,
               }),
               ElementGenerator({
                 element: "input",
-                onkeyup: (e) => {
-                  if (
-                    document.getElementById("passwordLogin").value.trim() !==
-                      "" &&
-                    document.getElementById("userNameLogin").value.trim() !== ""
-                  ) {
-                    document
-                      .getElementById("submit")
-                      .classList.remove("opacity-60");
-                    document.getElementById("submit").disabled = false;
-                  } else {
-                    document.getElementById("submit").disabled = true;
-                    document
-                      .getElementById("submit")
-                      .classList.add("opacity-60");
-                  }
-                },
-                onfocus: (e) => {
-                  e.target.closest("div").classList.remove("border-gray-300");
-                  e.target.closest("div").classList.add("border-black");
-                  e.target.closest("div").classList.remove("opacity-60");
-                },
-                onblur: (e) => {
-                  e.target.closest("div").classList.remove("border-black");
-                  e.target.closest("div").classList.add("border-gray-300");
-                  if (e.target.value.trim() === "")
-                    e.target.closest("div").classList.add("opacity-60");
-                },
-                className:
-                  "h-full px-1 font-medium border-none grow outline-none focus:border-none active:border-none active:outline-none focus:outline-none",
                 id: "passwordLogin",
                 type: "password",
                 placeholder: "Password",
+                className:
+                  "h-full px-1 font-medium border-none grow placeholder:text-[#6C757D] placeholder:text-[14px] placeholder:font-regular bg-transparent outline-none focus:border-none active:border-none active:outline-none focus:outline-none",
+                onkeyup: stillButton,
+                onfocus: (e) => {
+                  inputFocus(e);
+                  document.getElementById("passwordLoginLabel").innerHTML =
+                    svgIcons.lockBlack;
+                },
+                onblur: (e) => {
+                  inputBlur(e);
+                  if (e.target.value.trim() === "")
+                    document.getElementById("passwordLoginLabel").innerHTML =
+                      svgIcons.lockGray;
+                },
               }),
               ElementGenerator({
                 element: "div",
                 className: "relative",
-                onclick: (e) => {
-                  console.log("hi");
-                  if (
-                    document.getElementById("passwordLogin").type === "password"
-                  ) {
-                    document.getElementById("passwordLogin").type = "text";
-                    document.getElementById("eye").classList.add("h-[0%]");
-                    document.getElementById("eye").classList.remove("h-[100%]");
-                  } else {
-                    document.getElementById("passwordLogin").type = "password";
-                    document.getElementById("eye").classList.remove("h-[0%]");
-                    document.getElementById("eye").classList.add("h-[100%]");
-                  }
-                },
+                onclick: showPassword,
                 child: [
                   ElementGenerator({
                     element: "div",
                     id: "eye",
                     className:
-                      "absolute duration-300 bottom-1/2 translate-y-[17%] -translate-x-[27%] border-black border-r-2 h-[100%] w-full rotate-45",
+                      "absolute duration-300 bottom-1/2 translate-y-[80%] -translate-x-[30%] border-[#6C757D] border-r-2 h-[100%] w-full -rotate-45",
                   }),
                   ElementGenerator({
                     element: "span",
@@ -187,7 +172,7 @@ export const LoginPage = function () {
           }),
           ElementGenerator({
             element: "p",
-            for: "userNameHelper",
+            id: "passwordLoginHelper",
             className: "h-6 w-full text-sm px-2",
             child: "hello",
           }),
@@ -199,7 +184,6 @@ export const LoginPage = function () {
               ElementGenerator({
                 element: "input",
                 id: "remeber",
-                // <div class="text-inherit">
                 className:
                   "flex items-center justify-center rounded accent-[#212529]",
                 type: "checkbox",
@@ -207,7 +191,7 @@ export const LoginPage = function () {
               ElementGenerator({
                 element: "p",
                 className:
-                  "flex gap-2 items-center justify-center font-semibold",
+                  "flex gap-2 items-center justify-center tracking-tighter font-semibold text-[15px] leading-3",
                 child: "Remeber me",
               }),
             ],
@@ -215,10 +199,9 @@ export const LoginPage = function () {
           Button({
             type: "submit",
             id: "submit",
-            disabled: true,
             child: "Sing in",
             className:
-              "w-full h-10 mt-auto mb-5 rounded-3xl bg-[#212529] opacity-60",
+              "w-full h-10 mt-auto mb-5 rounded-3xl bg-[#212529] opacity-[65%]",
             variant: "normal",
           }),
         ],

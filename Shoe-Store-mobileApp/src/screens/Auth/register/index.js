@@ -58,8 +58,9 @@ export const RegisterPage = function () {
             child: "Sign in",
             className: "text-white hover:text-[#000] cursor-pointer",
             onclick: () => {
-              history.pushState(null, null, "/login");
-              Routes();
+              // history.pushState(null, null, "/login");
+              // Routes();
+              Routes().navigate("/login");
             },
           }),
         ],
