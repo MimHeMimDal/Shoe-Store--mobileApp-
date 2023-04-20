@@ -6,7 +6,7 @@ export default {
     "./index.html",
     "./src/**/*.js",
     "./main.js",
-    // "./node_modules/flowbite/**/*.js",
+    "./node_modules/flowbite/**/*.js",
   ],
   theme: {
     // fontFamily: {
@@ -30,7 +30,7 @@ export default {
       },
     },
   },
-  // plugins: [require("flowbite/plugin")],
+  plugins: [require("flowbite/plugin")],
 
   // other settings
   "tailwindCSS.includeLanguages": {

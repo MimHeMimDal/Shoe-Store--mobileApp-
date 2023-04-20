@@ -1,5 +1,6 @@
 // import { Button, Slider } from "@/components";
 import ElementGenerator from "@/library/ElementGernerator";
+import { Routes } from "@/routes";
 
 // export const LandingPage = function () {
 //   return ElementGenerator({
@@ -36,14 +37,14 @@ export const LandingPage = function () {
     element: "div",
     className: "relative h-full",
     id: "landing-page",
-    // onclick: () => {
-    //   // console.log("hi");
-    //   // console.log(document.getElementById("container"));
-    //   // console.log(document.getElementById("container").scrollBy);
-
-    //   // window.scrollTop = 300;
-    //   // document.getElementById("container").scrollBy(0, 300);
-    // },
+    onclick: () => {
+      // console.log("hi");
+      // console.log(document.getElementById("container"));
+      // console.log(document.getElementById("container").scrollBy);
+      // window.scrollTop = 300;
+      // document.getElementById("container").scrollBy(0, 300);
+      Routes().navigate("/welcome");
+    },
     child: [
       ElementGenerator({
         element: "img",

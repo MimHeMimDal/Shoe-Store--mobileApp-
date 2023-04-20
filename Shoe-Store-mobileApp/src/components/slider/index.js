@@ -108,7 +108,11 @@ export const Slider = function () {
               ElementGenerator({
                 element: "div",
                 className: "grow-[1]",
-                child: "slide",
+                child: ElementGenerator({
+                  element: "img",
+                  src: "http://localhost:5173/src/assets/images/_carousel-indicators-1.png",
+                  className: "",
+                }),
               }),
               Button({
                 child: "Next",
@@ -146,7 +150,11 @@ export const Slider = function () {
               ElementGenerator({
                 element: "div",
                 className: "grow-[1]",
-                child: "slide",
+                child: ElementGenerator({
+                  element: "img",
+                  src: "http://localhost:5173/src/assets/images/_carousel-indicators2.png",
+                  className: "",
+                }),
               }),
               Button({
                 child: "Next",
@@ -184,7 +192,11 @@ export const Slider = function () {
               ElementGenerator({
                 element: "div",
                 className: "grow-[1]",
-                child: "slide",
+                child: ElementGenerator({
+                  element: "img",
+                  src: "http://localhost:5173/src/assets/images/_carousel-indicators3.png",
+                  className: "",
+                }),
               }),
               Button({
                 child: "Get Started",

@@ -4,89 +4,100 @@
 // import { Toast } from "@/components";
 
 import { Routes } from "@/routes";
+import Cookies from "js-cookie";
 
 // import axios from "axios";
 
 export const CheckLogin = function (e) {
   e.preventDefault();
-  //   console.log(e.target.closest("form").elements);
-  const { passwordLogin: password, userNameLogin: userName } =
-    e.target.closest("form").elements;
+  // console.log(e.target.closest("form").elements);
+  const passwordLoginHelper = document.getElementById("passwordLoginHelper");
+  const userNameLoginHelper = document.getElementById("userNameLoginHelper");
+  const {
+    passwordLogin: password,
+    userNameLogin: userName,
+    remeber,
+  } = e.target.closest("form").elements;
   if (password.value.trim() === "") {
-    document.getElementById("passwordLoginHelper").textContent =
-      "Please Enter your password";
-    document.getElementById("passwordLoginHelper").dataset.error = true;
-    document
-      .getElementById("passwordLoginHelper")
-      .previousElementSibling.classList.add("border-red-500");
-    document
-      .getElementById("passwordLoginHelper")
-      .previousElementSibling.classList.add("border-2");
+    passwordLoginHelper.textContent = "Please Enter your password";
+    passwordLoginHelper.dataset.error = true;
+    passwordLoginHelper.previousElementSibling.classList.add("border-red-500");
+    passwordLoginHelper.previousElementSibling.classList.add("border-2");
   } else {
-    document.getElementById("passwordLoginHelper").dataset.error = false;
-    document
-      .getElementById("passwordLoginHelper")
-      .previousElementSibling.classList.remove("border-red-500");
-    document
-      .getElementById("passwordLoginHelper")
-      .previousElementSibling.classList.remove("border-2");
-    document.getElementById("passwordLoginHelper").textContent = "";
+    passwordLoginHelper.dataset.error = false;
+    passwordLoginHelper.previousElementSibling.classList.remove(
+      "border-red-500"
+    );
+    passwordLoginHelper.previousElementSibling.classList.remove("border-2");
+    passwordLoginHelper.textContent = "";
   }
   if (userName.value.trim() === "") {
-    document.getElementById("userNameLoginHelper").dataset.error = true;
-    document
-      .getElementById("userNameLoginHelper")
-      .previousElementSibling.classList.add("border-red-500");
-    document
-      .getElementById("userNameLoginHelper")
-      .previousElementSibling.classList.add("border-2");
-    document.getElementById("userNameLoginHelper").textContent =
-      "Please Enter Your Username";
+    userNameLoginHelper.dataset.error = true;
+    userNameLoginHelper.previousElementSibling.classList.add("border-red-500");
+    userNameLoginHelper.previousElementSibling.classList.add("border-2");
+    userNameLoginHelper.textContent = "Please Enter Your Username";
   } else {
-    document.getElementById("userNameLoginHelper").dataset.error = false;
+    userNameLoginHelper.dataset.error = false;
 
-    document
-      .getElementById("userNameLoginHelper")
-      .previousElementSibling.classList.remove("border-red-500");
-    document
-      .getElementById("userNameLoginHelper")
-      .previousElementSibling.classList.remove("border-2");
-    document.getElementById("userNameLoginHelper").textContent = "";
+    userNameLoginHelper.previousElementSibling.classList.remove(
+      "border-red-500"
+    );
+    userNameLoginHelper.previousElementSibling.classList.remove("border-2");
+    userNameLoginHelper.textContent = "";
   }
   if (password.value.trim() === "" && userName.value.trim() === "") {
-    document.getElementById("passwordLoginHelper").dataset.error = true;
-    document.getElementById("userNameLoginHelper").dataset.error = true;
-    document
-      .getElementById("passwordLoginHelper")
-      .previousElementSibling.classList.add("border-red-500");
-    document
-      .getElementById("passwordLoginHelper")
-      .previousElementSibling.classList.add("border-2");
-    document
-      .getElementById("userNameLoginHelper")
-      .previousElementSibling.classList.add("border-red-500");
-    document
-      .getElementById("userNameLoginHelper")
-      .previousElementSibling.classList.add("border-2");
-    document.getElementById("userNameLoginHelper").textContent =
-      "Please Enter Your Username";
-    document.getElementById("passwordLoginHelper").textContent =
-      "Please Enter your password";
+    passwordLoginHelper.dataset.error = true;
+    userNameLoginHelper.dataset.error = true;
+    passwordLoginHelper.previousElementSibling.classList.add("border-red-500");
+    passwordLoginHelper.previousElementSibling.classList.add("border-2");
+    userNameLoginHelper.previousElementSibling.classList.add("border-red-500");
+    userNameLoginHelper.previousElementSibling.classList.add("border-2");
+    userNameLoginHelper.textContent = "Please Enter Your Username";
+    passwordLoginHelper.textContent = "Please Enter your password";
   }
-  // fetch("http://127.0.0.1:8000/account/login", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  // })
-  //   .then((data) => console.log(data))
-  //   .catch((err) => console.error(err));
 
+  if (password.value === "1234" && userName.value === "mim") {
+    if (remeber.checked) {
+      Cookies.set("cookie", "1380", { expires: 5 });
+    } else {
+      Cookies.set("cookie", "1380");
+    }
+    Routes().navigate("/home");
+  }
   if (password.value.trim() !== "" && userName.value.trim() !== "") {
-    if (password.value === "1234" && userName.value === "mim") {
-      // history.pushState(null, null, "/home");
-      // Routes();
-      Routes().navigate("/home");
+    if (password.value !== "1234") {
+      passwordLoginHelper.textContent = "password is incorrect";
+      passwordLoginHelper.dataset.error = true;
+      passwordLoginHelper.previousElementSibling.classList.add(
+        "border-red-500"
+      );
+      passwordLoginHelper.previousElementSibling.classList.add("border-2");
+    } else {
+      passwordLoginHelper.dataset.error = false;
+      passwordLoginHelper.previousElementSibling.classList.remove(
+        "border-red-500"
+      );
+      passwordLoginHelper.previousElementSibling.classList.remove("border-2");
+      passwordLoginHelper.textContent = "";
+    }
+
+    if (userName.value !== "mim") {
+      userNameLoginHelper.dataset.error = true;
+      userNameLoginHelper.previousElementSibling.classList.add(
+        "border-red-500"
+      );
+      userNameLoginHelper.previousElementSibling.classList.add("border-2");
+      userNameLoginHelper.textContent = "username is incorrect";
+    } else {
+      userNameLoginHelper.dataset.error = false;
+      userNameLoginHelper.previousElementSibling.classList.remove(
+        "border-red-500"
+      );
+      userNameLoginHelper.previousElementSibling.classList.remove("border-2");
+      userNameLoginHelper.textContent = "";
     }
   }
+
   // axios
   //   .post(
   //     "http://127.0.0.1:8000/account/login",

@@ -1,31 +1,21 @@
 import { svgIcons } from "@/data";
 import ElementGenerator from "@/library/ElementGernerator";
-import { Routes } from "@/routes";
 
-export const PageNotFound = function ({ msg, login, title }) {
+export const PageNotFound = function ({ msg, title, className }) {
   return ElementGenerator({
     element: "div",
-    onclick: login
-      ? () => {
-          // history.pushState(null, null, "/login");
-          // Routes();
-          Routes().navigate("/login");
-        }
-      : () => {},
-    className: `absolute left-1/2 top-1/2 -translate-y-1/2  -translate-x-1/2 text-center ${
-      login ? "hover:text-[#144272]" : ""
-    }`,
+    className: `${className} flex flex-col m-auto items-center justify-center`,
     child: [
       ElementGenerator({ element: "div", innerHTML: svgIcons.pageNotFound }),
       ElementGenerator({
         element: "h1",
         child: title,
-        className: "font-bold text-[40px]",
+        className: "font-bold text-[30px] w-full text-center",
       }),
       ElementGenerator({
         element: "div",
         child: msg,
-        className: "text-[30px]",
+        className: "text-[20px] text-center",
       }),
     ],
   });

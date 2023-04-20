@@ -10,7 +10,7 @@ function App() {
   return ElementGenerator({
     element: "div",
     id: "container",
-    className: "h-screen overflow-hidden scroll-smooth",
+    className: "scroll-smooth",
     // child: Main(),
     // child: IsLoading(),
     // child: [LandingPage(), Slider()],

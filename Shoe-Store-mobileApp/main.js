@@ -6,4 +6,4 @@ const root = document.getElementById("app");
 root.append(App());
 Routes();
 
-// Routes();
+// localStorage.setItem("lastSearch", JSON.stringify([]));

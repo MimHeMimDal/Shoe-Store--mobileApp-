@@ -2,10 +2,11 @@
   "users": [
     {
       "id": 1380,
+      "userName": "mim",
+      "password": "1234",
       "wishlist": [
-        {
-          "productID": 690718248145245
-        }
+        690718248145245,
+        6907182481592
       ]
     }
   ],
@@ -16,7 +17,7 @@
     },
     {
       "name": "Addidas",
-      "source": "http://localhost:5173/src/assets/Logo/addidas.png"
+      "source": "http://localhost:5173/src/assets/Logo/addidas.svg"
     },
     {
       "name": "Puma",
@@ -42,55 +43,149 @@
   "orders": [
     {
       "id": 1,
-      "isActive": true,
+      "isActive": false,
       "userID": 1380,
       "productID": 690718248145245,
       "price": 14300,
       "size": 42,
-      "quantity": 4,
-      "image": "http://localhost:5173/src/assets/images/1.png",
+      "quantity": 7,
+      "image": "http://localhost:5173/src/assets/images/1.svg",
       "shortName": "ASICS SportStyle",
+      "color": {
+        "name": "Black",
+        "hex": "000000"
+      }
+    },
+    {
+      "id": 2,
+      "isActive": false,
+      "userID": 1380,
+      "productID": 690718248175478,
+      "price": 14300,
+      "size": 42,
+      "quantity": 4,
+      "image": "http://localhost:5173/src/assets/images/3.svg",
+      "shortName": "mammad",
+      "color": {
+        "name": "White",
+        "hex": "ffffff"
+      }
+    },
+    {
+      "id": "80b9ea36-532f-4eb6-8fec-8880fa4b5e1b",
+      "price": 14300,
+      "productID": "6907182481592",
+      "shortName": "ASICS SportStyle",
+      "userID": 1380,
+      "image": "http://localhost:5173/src/assets/images/2.svg",
+      "isActive": false,
+      "quantity": 5,
+      "size": 43,
       "color": {
         "name": "Black",
         "hex": "#000000"
       }
     },
     {
-      "id": 5,
-      "isActive": true,
-      "userID": 1380,
-      "productID": 690718248175478,
+      "id": "e9dd23d5-86c4-418f-a84a-ac62139055e6",
       "price": 14300,
-      "size": 42,
-      "quantity": 1,
-      "image": "http://localhost:5173/src/assets/images/3.png",
-      "shortName": "mammad",
+      "productID": "690718248145245",
+      "shortName": "ASICS SportStyle",
+      "userID": 1380,
+      "image": "http://localhost:5173/src/assets/images/1.svg",
+      "isActive": false,
+      "quantity": 5,
+      "size": 43,
       "color": {
-        "name": "White",
-        "hex": "#ffffff"
+        "name": "Black",
+        "hex": "000000"
       }
     },
     {
-      "id": 2,
-      "productID": 6907182481592,
-      "isActive": false
+      "id": "4e4c7d70-a36f-4225-8c97-3e59d501922b",
+      "price": 14300,
+      "productID": "674744548175478",
+      "shortName": "ASICS SportStyle",
+      "userID": 1380,
+      "image": "http://localhost:5173/src/assets/images/5.svg",
+      "isActive": false,
+      "quantity": 7,
+      "size": 42,
+      "color": {
+        "name": "Black",
+        "hex": "#000000"
+      }
+    },
+    {
+      "id": "24f7632e-fc9b-4cc9-b6cd-57f320469997",
+      "price": 14300,
+      "productID": "69071824752175478",
+      "shortName": "ASICS SportStyle",
+      "userID": 1380,
+      "image": "http://localhost:5173/src/assets/images/3.svg",
+      "isActive": false,
+      "quantity": 6,
+      "size": 43,
+      "color": {
+        "name": "White",
+        "hex": "#000000"
+      }
+    },
+    {
+      "id": "0b9d981c-f798-4995-8281-949cb5f846f6",
+      "price": 14300,
+      "productID": "69071824752175478",
+      "shortName": "ASICS SportStyle",
+      "userID": 1380,
+      "image": "http://localhost:5173/src/assets/images/3.svg",
+      "isActive": false,
+      "quantity": 4,
+      "size": 43,
+      "color": {
+        "name": "White",
+        "hex": "#000000"
+      }
+    },
+    {
+      "id": "eda44352-a870-41ac-b6d2-55f9bda72c47",
+      "price": 14300,
+      "productID": "6907182481592",
+      "shortName": "Addidas qweqjl",
+      "userID": 1380,
+      "image": "http://localhost:5173/src/assets/images/2.svg",
+      "isActive": true,
+      "quantity": 4,
+      "size": 43,
+      "color": {
+        "name": "Black",
+        "hex": "000000"
+      }
     }
   ],
   "products": [
     {
       "brand": "Nike",
       "color": [
-        "#607D8A",
-        "#9D28AC",
-        "#7A5448"
+        {
+          "name": "Black",
+          "hex": "000000"
+        },
+        {
+          "name": "White",
+          "hex": "FFFFFF"
+        },
+        {
+          "name": "Red",
+          "hex": "C50A0A"
+        }
       ],
       "size": [
         41,
         42,
         43
       ],
-      "title": "ASICS SportStyle GEL-PTG MT BLACK/GRAPHITE GREY",
-      "shortName": "ASICS SportStyle",
+      "title": "Nike proudct sxsdkfsdf",
+      "shortName": "Nike adsfsdfsd",
       "id": "690718248145245",
       "description": " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eaque commodi explicabo, dicta sunt numquam, nemo odit officia modi asperiores minima fugiat. Aspernatur recusandae id laudantium officia corrupti et perspiciatis?",
       "price": 14300,
@@ -99,7 +194,7 @@
       "rating": 4.5,
       "currency": "USD",
       "images_urls": [
-        "http://localhost:5173/src/assets/images/1.png",
+        "http://localhost:5173/src/assets/images/1.svg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r2.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r3.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r4.jpg",
@@ -110,17 +205,26 @@
     {
       "brand": "Addidas",
       "color": [
-        "#607D8A",
-        "#9D28AC",
-        "#7A5448"
+        {
+          "name": "Black",
+          "hex": "000000"
+        },
+        {
+          "name": "White",
+          "hex": "000000"
+        },
+        {
+          "name": "Red",
+          "hex": "C50A0A"
+        }
       ],
       "size": [
         41,
         42,
         43
       ],
-      "title": "ASICS SportStyle GEL-PTG MT BLACK/GRAPHITE GREY",
-      "shortName": "ASICS SportStyle",
+      "title": "Addidas product asdflknasd",
+      "shortName": "Addidas qweqjl",
       "id": "6907182481592",
       "description": " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eaque commodi explicabo, dicta sunt numquam, nemo odit officia modi asperiores minima fugiat. Aspernatur recusandae id laudantium officia corrupti et perspiciatis?",
       "price": 14300,
@@ -129,7 +233,7 @@
       "rating": 4.5,
       "currency": "USD",
       "images_urls": [
-        "http://localhost:5173/src/assets/images/2.png",
+        "http://localhost:5173/src/assets/images/2.svg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r2.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r3.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r4.jpg",
@@ -140,18 +244,27 @@
     {
       "brand": "Nike",
       "color": [
-        "#607D8A",
-        "#9D28AC",
-        "#7A5448"
+        {
+          "name": "Black",
+          "hex": "#000000"
+        },
+        {
+          "name": "White",
+          "hex": "#000000"
+        },
+        {
+          "name": "Red",
+          "hex": "#C50A0A"
+        }
       ],
       "size": [
         41,
         42,
         43
       ],
-      "title": "ASICS SportStyle GEL-PTG MT BLACK/GRAPHITE GREY",
+      "title": "Nike proudct sxasdf123123",
       "shortName": "ASICS SportStyle",
-      "id": "690718248175478",
+      "id": "69071824752175478",
       "description": " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eaque commodi explicabo, dicta sunt numquam, nemo odit officia modi asperiores minima fugiat. Aspernatur recusandae id laudantium officia corrupti et perspiciatis?",
       "price": 14300,
       "sold": 53463,
@@ -159,7 +272,124 @@
       "rating": 4.5,
       "currency": "USD",
       "images_urls": [
-        "http://localhost:5173/src/assets/images/3.png",
+        "http://localhost:5173/src/assets/images/3.svg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r2.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r3.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r4.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r5.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r6.jpg"
+      ]
+    },
+    {
+      "brand": "Reebok",
+      "color": [
+        {
+          "name": "Black",
+          "hex": "#000000"
+        },
+        {
+          "name": "White",
+          "hex": "#000000"
+        },
+        {
+          "name": "Red",
+          "hex": "#C50A0A"
+        }
+      ],
+      "size": [
+        41,
+        42,
+        43
+      ],
+      "title": "Rebook product asdflknasd",
+      "shortName": "Rebook SportStyle",
+      "id": "69071824785455478",
+      "description": " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eaque commodi explicabo, dicta sunt numquam, nemo odit officia modi asperiores minima fugiat. Aspernatur recusandae id laudantium officia corrupti et perspiciatis?",
+      "price": 14300,
+      "sold": 53463,
+      "reviews": 9842,
+      "rating": 4.5,
+      "currency": "USD",
+      "images_urls": [
+        "http://localhost:5173/src/assets/images/4.svg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r2.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r3.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r4.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r5.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r6.jpg"
+      ]
+    },
+    {
+      "brand": "Nike",
+      "color": [
+        {
+          "name": "Black",
+          "hex": "#000000"
+        },
+        {
+          "name": "White",
+          "hex": "#000000"
+        },
+        {
+          "name": "Red",
+          "hex": "#C50A0A"
+        }
+      ],
+      "size": [
+        41,
+        42,
+        43
+      ],
+      "title": "Nike proudct iweyr27368423",
+      "shortName": "Nike SportStyle",
+      "id": "674744548175478",
+      "description": " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eaque commodi explicabo, dicta sunt numquam, nemo odit officia modi asperiores minima fugiat. Aspernatur recusandae id laudantium officia corrupti et perspiciatis?",
+      "price": 14300,
+      "sold": 53463,
+      "reviews": 9842,
+      "rating": 4.5,
+      "currency": "USD",
+      "images_urls": [
+        "http://localhost:5173/src/assets/images/5.svg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r2.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r3.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r4.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r5.jpg",
+        "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r6.jpg"
+      ]
+    },
+    {
+      "brand": "Nike",
+      "color": [
+        {
+          "name": "Black",
+          "hex": "#000000"
+        },
+        {
+          "name": "White",
+          "hex": "#000000"
+        },
+        {
+          "name": "Red",
+          "hex": "#C50A0A"
+        }
+      ],
+      "size": [
+        41,
+        42,
+        43
+      ],
+      "title": "NIke SportStyle GEL-PTG MT BLACK/GRAPHITE GREY",
+      "shortName": "NIke SportStyle",
+      "id": "690735524175478",
+      "description": " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eaque commodi explicabo, dicta sunt numquam, nemo odit officia modi asperiores minima fugiat. Aspernatur recusandae id laudantium officia corrupti et perspiciatis?",
+      "price": 14300,
+      "sold": 53463,
+      "reviews": 9842,
+      "rating": 4.5,
+      "currency": "USD",
+      "images_urls": [
+        "http://localhost:5173/src/assets/images/1.svg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r2.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r3.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r4.jpg",
@@ -170,18 +400,27 @@
     {
       "brand": "Puma",
       "color": [
-        "#607D8A",
-        "#9D28AC",
-        "#7A5448"
+        {
+          "name": "Black",
+          "hex": "#000000"
+        },
+        {
+          "name": "White",
+          "hex": "#000000"
+        },
+        {
+          "name": "Red",
+          "hex": "#C50A0A"
+        }
       ],
       "size": [
         41,
         42,
         43
       ],
-      "title": "ASICS SportStyle GEL-PTG MT BLACK/GRAPHITE GREY",
-      "shortName": "ASICS SportStyle",
-      "id": "69071824854277",
+      "title": "Puma SportStyle GEL-PTG MT BLACK/GRAPHITE GREY",
+      "shortName": "Puma SportStyle",
+      "id": "696877524574854277",
       "description": " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eaque commodi explicabo, dicta sunt numquam, nemo odit officia modi asperiores minima fugiat. Aspernatur recusandae id laudantium officia corrupti et perspiciatis?",
       "price": 14300,
       "sold": 53463,
@@ -189,13 +428,30 @@
       "rating": 4.5,
       "currency": "USD",
       "images_urls": [
-        "http://localhost:5173/src/assets/images/4.png",
+        "http://localhost:5173/src/assets/images/4.svg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r2.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r3.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r4.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r5.jpg",
         "https://cdn.shopify.com/s/files/1/0265/8012/3707/products/1201a274-001-r6.jpg"
       ]
+    }
+  ],
+  "discounts": [
+    {
+      "id": 1,
+      "value": "gold",
+      "fee": 0.7
+    },
+    {
+      "id": 2,
+      "value": "silver",
+      "fee": 0.85
+    },
+    {
+      "id": 3,
+      "value": "bronze",
+      "fee": 0.9
     }
   ]
 }

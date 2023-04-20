@@ -1,13 +1,22 @@
-import { Card, Slider } from "@/components";
+import { Card, IsLoading, Slider } from "@/components";
+import paymentModal from "@/components/payment/paymentModal";
 import { svgIcons } from "@/data";
 import { axiosInstance } from "@/functions/axiosinstance";
 import ElementGenerator from "@/library/ElementGernerator";
 import { LoginPage } from "@/screens/Auth";
 import { Cart } from "@/screens/Cart";
+import checkout from "@/screens/Checkout/checkout";
+import paymentMethod from "@/screens/Checkout/paymentMethod";
+import shippingAddress from "@/screens/Checkout/shippingAddress";
+import shippingType from "@/screens/Checkout/shippingType";
+import { LandingPage } from "@/screens/LandingPage";
 // import { LandingPage } from "@/screens/LandingPage";
 import { Main } from "@/screens/Main";
 import { PageNotFound } from "@/screens/PageNotFound";
 import { Product } from "@/screens/Product";
+import { myOrders } from "@/screens/myOrders/myOrders";
+import { Wishlist } from "@/screens/wishlist";
+import Cookies from "js-cookie";
 import Navigo from "navigo";
 // import Cookies from "js-cookie";
 const rout = new Navigo("/");
@@ -17,12 +26,21 @@ export const Routes = function () {
   app.innerHTML = "";
   rout
     .on("/", function () {
+      if (Cookies.get("cookie")) {
+        rout.navigate("/home");
+      } else {
+        app.innerHTML = "";
+        app.append(IsLoading());
+        setTimeout(() => {
+          app.innerHTML = "";
+          app.append(LandingPage());
+          // rout.navigate("/login");
+        }, 500);
+      }
+    })
+    .on("/welcome", function () {
+      app.innerHTML = "";
       app.append(Slider());
-      // if (Cookies.get("cookie")) {
-      //   console.log("yes cookie");
-      // } else {
-      //   app.innerHTML = "";
-      // }
     })
     .on("/login", function () {
       app.innerHTML = "";
@@ -60,7 +78,7 @@ export const Routes = function () {
                 }),
                 ElementGenerator({
                   element: "div",
-                  className: "font-bold",
+                  className: "font-bold text-xl",
                   child: params.data.name,
                 }),
               ],
@@ -68,7 +86,18 @@ export const Routes = function () {
             cardContainer,
           ],
         });
-        res.data.forEach((item) => cardContainer.append(Card(item)));
+        if (res.data.length > 0) {
+          res.data.forEach((item) => cardContainer.append(Card(item)));
+        } else {
+          cardContainer.append(
+            PageNotFound({
+              title: "No Products",
+              msg: "Sorry, currently we have no product with your requested brand",
+              className:
+                "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+            })
+          );
+        }
         app.append(container);
       });
     })
@@ -76,9 +105,37 @@ export const Routes = function () {
       app.innerHTML = "";
       app.append(Product(params.data.id));
     })
+    .on("/checkout", function () {
+      app.innerHTML = "";
+      app.append(checkout());
+    })
+    .on("/my-wishlist", function () {
+      app.innerHTML = "";
+      app.append(Wishlist());
+    })
+    .on("/paymentMethod", function () {
+      app.innerHTML = "";
+      app.append(paymentMethod());
+    })
+    .on("/paymentModal", function () {
+      app.innerHTML = "";
+      app.append(paymentModal());
+    })
+    .on("/shippingAddress", function () {
+      app.innerHTML = "";
+      app.append(shippingAddress());
+    })
+    .on("/shippingType", function () {
+      app.innerHTML = "";
+      app.append(shippingType());
+    })
     .on("/my-cart", function () {
       app.innerHTML = "";
       app.append(Cart());
+    })
+    .on("/my-orders", () => {
+      app.innerHTML = "";
+      app.append(myOrders());
     })
     .notFound(function () {
       app.innerHTML = "";

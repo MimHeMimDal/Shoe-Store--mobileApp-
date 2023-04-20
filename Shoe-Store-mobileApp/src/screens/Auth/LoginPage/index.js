@@ -41,7 +41,7 @@ export const LoginPage = function () {
   return ElementGenerator({
     element: "div",
     className:
-      "h-full flex flex-col items-center justify-between [&_>_*]:w-full px-4 py-3",
+      "h-screen flex flex-col items-center justify-between [&_>_*]:w-full px-4 py-3",
     child: [
       ElementGenerator({
         element: "div",
@@ -116,7 +116,6 @@ export const LoginPage = function () {
             element: "p",
             id: "userNameLoginHelper",
             className: "h-6 w-full text-sm px-2",
-            child: "hello",
           }),
           ElementGenerator({
             element: "div",
@@ -174,7 +173,6 @@ export const LoginPage = function () {
             element: "p",
             id: "passwordLoginHelper",
             className: "h-6 w-full text-sm px-2",
-            child: "hello",
           }),
           ElementGenerator({
             element: "label",
